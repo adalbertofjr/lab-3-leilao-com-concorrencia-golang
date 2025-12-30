@@ -65,17 +65,48 @@ Ou use curl/Postman com os exemplos abaixo.
 
 ## 💻 Executando Localmente (Sem Docker)
 
+### Pré-requisito: MongoDB deve estar rodando
+
+⚠️ **IMPORTANTE:** Certifique-se de que o MongoDB está rodando antes de executar a aplicação localmente.
+
 ### 1. Subir apenas o MongoDB
 
 ```bash
 docker-compose up -d mongodb mongo-express
 ```
 
-### 2. Configurar variáveis de ambiente
+Aguarde alguns segundos para o MongoDB inicializar completamente.
 
-Edite o arquivo `cmd/auction/.env` se necessário.
+### 2. Ajustar o código do main.go
 
-### 3. Executar a aplicação
+⚠️ **IMPORTANTE:** Para executar localmente, você precisa ajustar o caminho do arquivo `.env` no arquivo `cmd/auction/main.go`.
+
+Altere de:
+```go
+if err := godotenv.Load("cmd/auction/.env"); err != nil {
+```
+
+Para:
+```go
+if err := godotenv.Load(".env"); err != nil {
+```
+
+> **Por quê?** Quando você executa `go run main.go` dentro da pasta `cmd/auction/`, o caminho relativo correto é apenas `.env`, pois o arquivo está na mesma pasta.
+
+### 3. Configurar variáveis de ambiente
+
+Certifique-se de que existe um arquivo `.env` dentro da pasta `cmd/auction/`.
+
+Exemplo de conteúdo do `.env`:
+
+```env
+BATCH_INSERT_INTERVAL=20s
+MAX_BATCH_SIZE=4
+AUCTION_INTERVAL=20s
+MONGODB_URL=mongodb://admin:admin@localhost:27017/auctions?authSource=admin
+```
+
+### 4. Executar a aplicação
 
 ```bash
 cd cmd/auction
