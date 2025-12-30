@@ -22,8 +22,8 @@ import (
 func main() {
 	ctx := context.Background()
 
-	if err := godotenv.Load("./.env"); err != nil {
-		log.Fatal("Error trying to load env variables")
+	if err := godotenv.Load("cmd/auction/.env"); err != nil {
+		log.Println("Error trying to load env variables")
 		return
 	}
 

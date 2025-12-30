@@ -12,6 +12,8 @@ services:
       - localNetwork
     environment:
       MONGODB_URL: mongodb://admin:admin@mongodb:27017/auctions?authSource=admin
+    depends_on:
+      - mongodb
 
   mongodb:
     image: mongo:latest

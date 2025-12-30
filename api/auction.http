@@ -10,5 +10,5 @@ Content-Type: application/json
 }
 
 ### GEt /auction/{id} HTTP/1.1
-GET /auction/eba96f07-40b1-4a78-b483-bbbdc0ed096b HTTP/1.1
+GET /auction/930dd895-74ea-4768-af71-e164d2fc9a3e HTTP/1.1
 Host: localhost:8080
