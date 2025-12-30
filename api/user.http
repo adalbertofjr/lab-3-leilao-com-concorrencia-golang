@@ -1,0 +1,10 @@
+GET /user/550e8400-e29b-41d4-a716-446655440000 HTTP/1.1
+Host: localhost:8080
+
+###
+GET /user/6ba7b810-9dad-11d1-80b4-00c04fd430c8 HTTP/1.1
+Host: localhost:8080
+
+### Invalid UUID format
+GET /user/123e4567-e89b-12d3-a456-426614174000 HTTP/1.1
+Host: localhost:8080    

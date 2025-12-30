@@ -1,0 +1,8 @@
+.vscode/
+.idea/
+*.log
+**/bin/
+**/obj/
+**/vendor/
+.DS_Store
+.env

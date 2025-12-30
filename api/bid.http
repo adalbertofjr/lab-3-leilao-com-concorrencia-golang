@@ -1,0 +1,13 @@
+POST /bid HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "user_id": "550e8400-e29b-41d4-a716-446655440000",
+  "auction_id": "08f770bf-929f-4f05-be85-83c692e065ce",
+  "amount": 150.00
+}
+
+###
+GET /bid/9c8b1fbe-e7ae-4834-b662-824b0baa4009 HTTP/1.1
+Host: localhost:8080
